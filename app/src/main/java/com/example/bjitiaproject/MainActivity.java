@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.bjitiaproject.model.Student;
 
 public class MainActivity extends AppCompatActivity {
     EditText eTUserName, eTEmail, eTPassword, eTPhone, eTCGPA;
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btnSave = findViewById(R.id.btnSave);
         btnClear = findViewById(R.id.btnClear);
 
-        btnCancel.setOnClickListener(new View.OnClickListener() {
+        btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 eTUserName.setText("");
@@ -34,6 +37,20 @@ public class MainActivity extends AppCompatActivity {
                 eTPassword.setText("");
                 eTPhone.setText("");
                 eTCGPA.setText("");
+            }
+        });
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Student std = new Student();
+                std.setUserName(eTUserName.getText().toString());
+                std.setEmail(eTEmail.getText().toString());
+                std.setPassword(eTPassword.getText().toString());
+                std.setPhoneNo(eTPhone.getText().toString());
+                std.setCgpa(Float.parseFloat(eTCGPA.getText().toString()));
+
+                Toast.makeText(MainActivity.this, std.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
