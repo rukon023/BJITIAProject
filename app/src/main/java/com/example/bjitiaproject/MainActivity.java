@@ -4,16 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.bjitiaproject.model.Student;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     EditText eTUserName, eTEmail, eTPassword, eTPhone, eTCGPA;
     Button btnCancel, btnSave, btnClear;
-
+    ArrayList<Student> studentArrayList;
+    ArrayAdapter<Student> studentArrayAdapter;
+    ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
         btnCancel = findViewById(R.id.btnCancel);
         btnSave = findViewById(R.id.btnSave);
         btnClear = findViewById(R.id.btnClear);
+
+        listView = (ListView) findViewById(R.id.listview);
+        studentArrayList = new ArrayList<Student>();
+        studentArrayAdapter = new ArrayAdapter<Student>(MainActivity.this, android.R.layout.simple_list_item_1, studentArrayList);
+        listView.setAdapter(studentArrayAdapter);
 
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,7 +125,9 @@ public class MainActivity extends AppCompatActivity {
                 if(error){
                     Toast.makeText(MainActivity.this, "Data is not saved!!", Toast.LENGTH_SHORT).show();
                 } else{
-                    Toast.makeText(MainActivity.this, std.toString(), Toast.LENGTH_SHORT).show();
+                    studentArrayList.add(std);
+                    studentArrayAdapter.notifyDataSetChanged();
+                    //Toast.makeText(MainActivity.this, std.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
