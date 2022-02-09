@@ -7,6 +7,17 @@ public class Student {
     private String phoneNo;
     private Float cgpa;
 
+    public Student() {
+    }
+
+    public Student(String userName, String email, String password, String phoneNo, Float cgpa) {
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+        this.phoneNo = phoneNo;
+        this.cgpa = cgpa;
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -51,7 +62,7 @@ public class Student {
     public String toString() {
         return "Student{" +
                 "userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
                 ", phoneNo='" + phoneNo + '\'' +
                 ", cgpa=" + cgpa +
                 '}';

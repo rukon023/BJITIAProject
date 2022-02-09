@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
     EditText eTUserName, eTEmail, eTPassword, eTPhone, eTCGPA;
     Button btnCancel, btnSave, btnClear;
 
-    String userName, password, phone, cgpa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,14 +42,80 @@ public class MainActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                boolean error = false;
                 Student std = new Student();
-                std.setUserName(eTUserName.getText().toString());
-                std.setEmail(eTEmail.getText().toString());
-                std.setPassword(eTPassword.getText().toString());
-                std.setPhoneNo(eTPhone.getText().toString());
-                std.setCgpa(Float.parseFloat(eTCGPA.getText().toString()));
+                String userName, email, password, phone, cgpa;
+                userName = eTUserName.getText().toString().trim();
+                email = eTEmail.getText().toString();
+                password = eTPassword.getText().toString();
+                phone = eTPhone.getText().toString();
+                cgpa = eTCGPA.getText().toString();
 
-                Toast.makeText(MainActivity.this, std.toString(), Toast.LENGTH_SHORT).show();
+                // data validation
+                if (userName.isEmpty()){
+                    error = true;
+                    eTUserName.setError("Username is missing!!");
+                } else{
+                    if(userName.length() < 6){
+                        error = true;
+                        eTUserName.setError("Username is too short!!");
+                    } else{
+                        std.setUserName(userName);
+                    }
+                }
+                if (email.isEmpty()){
+                    error = true;
+                    eTEmail.setError("Email is missing!!");
+                } else{
+                    if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                        error = true;
+                        eTEmail.setError("Please provide a valid email address!!");
+                    } else{
+                        std.setEmail(email);
+                    }
+                }
+                if (password.isEmpty()){
+                    error = true;
+                    eTPassword.setError("Password required!!");
+                } else{
+                    if(password.length() < 8 || password.length() > 20){
+                        error = true;
+                        eTPassword.setError("Password must contain 8 to 20 characters!!");
+                    } else{
+                        std.setPassword(password);
+                    }
+                }
+                if (phone.isEmpty()){
+                    error = true;
+                    eTPhone.setError("Phone number missing!!");
+                } else if (phone.length()==11){
+                    if (phone.startsWith("017") || phone.startsWith("013") || phone.startsWith("019") ||
+                        phone.startsWith("016") || phone.startsWith("018") || phone.startsWith("015")){
+                        std.setPhoneNo(phone);
+                    } else{
+                        error = true;
+                        eTPhone.setError("Invalid phone number");
+                    }
+                } else{
+                    error = true;
+                    eTPhone.setError("Phone number should be 11 digits!!");
+                }
+                if (cgpa.isEmpty()){
+                    error = true;
+                    eTCGPA.setError("CGPA missing!!");
+                } else{
+                    if(Float.parseFloat(cgpa) < 0 || Float.parseFloat(cgpa) > 4){
+                        error = true;
+                        eTCGPA.setError("Invalid CGPA!!");
+                    } else{
+                        std.setCgpa(Float.parseFloat(cgpa));
+                    }
+                }
+                if(error){
+                    Toast.makeText(MainActivity.this, "Data is not saved!!", Toast.LENGTH_SHORT).show();
+                } else{
+                    Toast.makeText(MainActivity.this, std.toString(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
