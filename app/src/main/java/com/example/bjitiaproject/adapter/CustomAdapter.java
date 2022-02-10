@@ -1,6 +1,8 @@
 package com.example.bjitiaproject.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Image;
 import android.net.Uri;
@@ -66,7 +68,25 @@ public class CustomAdapter extends BaseAdapter {
                 context.startActivity(intent);
             }
         });
-
+        custom_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String msg = "Username: " + arrayList.get(i).getUserName() + '\n' +
+                            "Email: " + arrayList.get(i).getEmail() + '\n' +
+                            "Phone No.: " + arrayList.get(i).getPhoneNo() + '\n' +
+                            "CGPA: " +arrayList.get(i).getCgpa();
+                AlertDialog alertDialog = new AlertDialog.Builder(context)
+                        .setTitle("Student Details")
+                        .setMessage(msg)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                // nothing to do here...
+                            }
+                        })
+                        .show();
+            }
+        });
         return  custom_layout;
 
         //return null;

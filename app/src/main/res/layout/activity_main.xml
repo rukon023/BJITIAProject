@@ -7,14 +7,22 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="#8AFFFFFF"
     android:padding="10dp"
     tools:context=".MainActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:padding="10dp"
+        android:text="Student Registration"/>
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:endIconMode="clear_text"
-        app:startIconDrawable="@drawable/ic_person">
+        app:startIconDrawable="@drawable/ic_user_man2">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/eTUserName"
@@ -80,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:endIconMode="clear_text"
-        app:startIconDrawable="@drawable/ic_cap">
+        app:startIconDrawable="@drawable/ic_cap22">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/eTCGPA"
@@ -101,6 +109,7 @@
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_weight="1"
             android:text="Cancel" />
 
@@ -124,11 +133,6 @@
         android:id="@+id/listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
     </ListView>
 
 </LinearLayout>
-
-
-
-

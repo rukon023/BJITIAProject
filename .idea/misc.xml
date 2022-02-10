@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/chotha/PROJECTS/BJITIAProject/app/src/main/res/drawable/ic_call1.xml" value="0.1" />
+        <entry key="..\:/chotha/PROJECTS/BJITIAProject/app/src/main/res/drawable/ic_call_22.xml" value="0.1" />
+        <entry key="..\:/chotha/PROJECTS/BJITIAProject/app/src/main/res/drawable/ic_email22.xml" value="0.1345" />
+        <entry key="..\:/chotha/PROJECTS/BJITIAProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1345" />
+        <entry key="..\:/chotha/PROJECTS/BJITIAProject/app/src/main/res/drawable/ic_lock22.xml" value="0.1345" />
+        <entry key="..\:/chotha/PROJECTS/BJITIAProject/app/src/main/res/drawable/ic_person.xml" value="0.1615" />
+        <entry key="..\:/chotha/PROJECTS/BJITIAProject/app/src/main/res/drawable/ic_person2.xml" value="0.1615" />
+        <entry key="..\:/chotha/PROJECTS/BJITIAProject/app/src/main/res/drawable/ic_phone.xml" value="0.1345" />
+        <entry key="..\:/chotha/PROJECTS/BJITIAProject/app/src/main/res/drawable/ic_user_man2.xml" value="0.1615" />
         <entry key="..\:/chotha/PROJECTS/BJITIAProject/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/chotha/PROJECTS/BJITIAProject/app/src/main/res/layout/item_layout.xml" value="0.25" />
       </map>

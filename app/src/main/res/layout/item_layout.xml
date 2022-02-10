@@ -8,7 +8,7 @@
         android:id="@+id/imageViewUser"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:src="@drawable/ic_person" />
+        android:src="@drawable/ic_person22" />
 
     <ImageView
         android:id="@+id/imageViewCallIcon"
@@ -17,7 +17,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerInParent="true"
         android:layout_marginRight="10dp"
-        android:src="@drawable/ic_phone" />
+        android:src="@drawable/ic_call33" />
 
     <TextView
         android:id="@+id/textViewCGPA"
@@ -26,6 +26,7 @@
         android:layout_alignBottom="@id/imageViewUser"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
+        android:layout_toLeftOf="@id/imageViewCallIcon"
         android:layout_toRightOf="@+id/imageViewUser"
         android:text="3.50"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -36,7 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageViewUser"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toLeftOf="@id/imageViewCallIcon"
         android:layout_toRightOf="@+id/imageViewUser"
         android:text="Md Rukon"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
