@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.bjitiaproject.adapter.CustomAdapter;
 import com.example.bjitiaproject.model.Student;
 
 import java.util.ArrayList;
@@ -18,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
     EditText eTUserName, eTEmail, eTPassword, eTPhone, eTCGPA;
     Button btnCancel, btnSave, btnClear;
     ArrayList<Student> studentArrayList;
-    ArrayAdapter<Student> studentArrayAdapter;
+    //ArrayAdapter<Student> studentArrayAdapter;
+    CustomAdapter customAdapter;
     ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.listview);
         studentArrayList = new ArrayList<Student>();
-        studentArrayAdapter = new ArrayAdapter<Student>(MainActivity.this, android.R.layout.simple_list_item_1, studentArrayList);
-        listView.setAdapter(studentArrayAdapter);
-
+        //studentArrayAdapter = new ArrayAdapter<Student>(MainActivity.this, android.R.layout.simple_list_item_1, studentArrayList);
+        //listView.setAdapter(studentArrayAdapter);
+        customAdapter = new CustomAdapter(MainActivity.this, studentArrayList);
+        listView.setAdapter(customAdapter);
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,7 +129,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Data is not saved!!", Toast.LENGTH_SHORT).show();
                 } else{
                     studentArrayList.add(std);
-                    studentArrayAdapter.notifyDataSetChanged();
+                    //studentArrayAdapter.notifyDataSetChanged();
+                    customAdapter.notifyDataSetChanged();
                     //Toast.makeText(MainActivity.this, std.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
